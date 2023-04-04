@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from fraud.views import CreateUserView, GetUserView
+from fraud.views import CreateUserView, GetUserView,UserListView
 
 
 urlpatterns = [
@@ -25,5 +25,7 @@ urlpatterns = [
     path('users/', CreateUserView.as_view(), name='create_user'),
     path('users/<int:pk>/', GetUserView.as_view(), name='get_user'),
     path('api-auth/', include('rest_framework.urls')),
+    path('create-user/', CreateUserView.as_view(), name='create-user'),
+     path('users/list/', UserListView.as_view(), name='list_users'),
 ]
 
